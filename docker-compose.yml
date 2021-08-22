@@ -1,0 +1,23 @@
+version: "3"
+services:
+  db:                                         # 서비스 이름
+    image: mysql:8.0                          # 이미지 이름
+    container_name: item                      # 컨테이너 이름
+    ports:
+      - "3307:3307"                           # 컨테이너 외부 포트 : 컨테이너 내부 포트
+    environment:                              # 환경 변수
+      - MYSQL_DATABASE=mariadb
+      #- MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_ROOT_PASSWORD=root            # MYSQL 루트 패스워드
+      - TZ=Asia/Seoul
+    command:                                  # 명령어 실행 (한글 깨짐 방지)
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+#    docker exec -it mysql-container bash
+  app:
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
