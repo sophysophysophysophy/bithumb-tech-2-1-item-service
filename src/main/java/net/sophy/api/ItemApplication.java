@@ -24,9 +24,11 @@ public class ItemApplication implements CommandLineRunner {
 		itemController.deleteAll();
 
 		itemController.save(new Item("삼성", "갤럭시", "흑색"));
+		itemController.save(Item.builder().itemBrand("삼성").itemColor("핑크색").itemName("애니콜").build());
 		itemController.save(new Item("애플", "아이폰", "흰색"));
 		itemController.save(new Item("삼성", "갤럭시", "흰색"));
 
+		System.out.println("성공");
 		for (Item item : itemController.findAll()) {
 			System.out.println(item.toString());
 		}

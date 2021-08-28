@@ -4,7 +4,7 @@ services:
     image: mysql:8.0                          # 이미지 이름
     container_name: item                      # 컨테이너 이름
     ports:
-      - "3307:3307"                           # 컨테이너 외부 포트 : 컨테이너 내부 포트
+      - "3306:3306"                           # 컨테이너 외부 포트 : 컨테이너 내부 포트
     environment:                              # 환경 변수
       - MYSQL_DATABASE=mariadb
       #- MYSQL_ALLOW_EMPTY_PASSWORD=true

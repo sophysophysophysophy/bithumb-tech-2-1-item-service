@@ -3,12 +3,14 @@ package net.sophy.api.item.domain;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import net.sophy.api.order.domain.Order;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor
 @Entity
 @Data
 @Table(name = "items")
@@ -56,7 +58,7 @@ public class Item {
                 ", itemColor='" + itemColor + '\'' +
                 ", releaseDate='" + releaseDate + '\'' +
                 ", soldOut=" + soldOut +
-                ", orders=" + orders +
+//                ", orders=" + orders +
                 '}';
     }
 }
