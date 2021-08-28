@@ -1,6 +1,5 @@
 package net.sophy.api.user.service;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import net.sophy.api.user.domain.User;
 import net.sophy.api.user.repository.UserRepository;
@@ -22,6 +21,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<User> findById(long id) {
         return userRepository.findById(id);
+    }
+
+    @Override
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
     @Override
@@ -48,4 +52,20 @@ public class UserServiceImpl implements UserService {
     public void deleteAll() {
         userRepository.deleteAll();
     }
+
+    @Override
+    public User getById(long id) {
+        return userRepository.getById(id);
+    }
+
+    @Override
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
+    @Override
+    public User signin(String username, String password) {
+        return userRepository.signin(username, password);
+    }
+
 }

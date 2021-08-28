@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController @RequiredArgsConstructor
-public class UserController {
+public class UserController{
     private final UserService userService;
 
     public List<User> findAll() {
@@ -19,6 +19,10 @@ public class UserController {
 
     public Optional<User> findById(long id) {
         return userService.findById(id);
+    }
+
+    public Optional<User> findByUsername(String username) {
+        return userService.findByUsername(username);
     }
 
     public boolean existById(long id) {
@@ -40,4 +44,17 @@ public class UserController {
     public void deleteAll() {
         userService.deleteAll();
     }
+
+    public User getById(long id) {
+        return userService.getById(id);
+    }
+
+    public boolean existsByUsername(String username) {
+        return userService.existsByUsername(username);
+    }
+
+    public User signin(String username, String password) {
+        return userService.signin(username, password);
+    }
+
 }
