@@ -2,6 +2,7 @@ package net.sophy.api.user.service;
 
 
 import net.sophy.api.user.domain.User;
+import net.sophy.api.user.domain.UserDto;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,6 @@ public interface UserService {
     void deleteAll();
     User getById(long id);      //없을 수가 없는 값에는 optional 걸지 않음 (있는게 확실할 때 )
     boolean existsByUsername(String username);
-    User signin(String username, String password);
-
+    UserDto signin(User user);
+    String signup(User user);
 }

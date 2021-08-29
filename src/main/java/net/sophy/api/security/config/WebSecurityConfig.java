@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private final SecurityProvider provider;
+//    private final SecurityProvider provider;
 
     @Bean PasswordEncoder encoder() { return new BCryptPasswordEncoder(); }
     @Bean AuthenticationManager manager() throws Exception { return super.authenticationManagerBean(); }
@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated();
 
         http.exceptionHandling().accessDeniedPage("/login");
-        http.apply(new SecurityConfig(provider));
+//        http.apply(new SecurityConfig(provider));
 
     }
 }

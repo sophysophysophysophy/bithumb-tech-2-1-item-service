@@ -1,5 +1,6 @@
 package net.sophy.api.item.controller;
 
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import net.sophy.api.item.domain.Item;
 import net.sophy.api.item.service.ItemService;
@@ -9,15 +10,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "*", allowCredentials = "false")
+@Api(tags = "items")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/items")
 public class ItemController {
     private final ItemService itemService;
 
-    @GetMapping("/{id}")
-    public Optional<Item> findById(@PathVariable long id) {
-        return itemService.findById(id);
+    @GetMapping("/connect")
+    public String connect() {
+        return "success";
+    }
+
+    @GetMapping //("/{id}")
+    public Item findById(@RequestParam("itemBrand") String itemBrand,
+                         @RequestParam("itemName") String itemName,
+                         @RequestParam("itemColor") String itemColor) {
+        return new Item(itemBrand, itemName, itemColor);
+//        return itemService.findById(findById());
     }
 
     @GetMapping("/count")
