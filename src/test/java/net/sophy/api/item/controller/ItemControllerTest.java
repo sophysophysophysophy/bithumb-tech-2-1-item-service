@@ -5,6 +5,7 @@ import net.sophy.api.security.domain.SecurityProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -30,12 +31,12 @@ class ItemControllerTest {
 
 
 
-    @BeforeEach
-    void setUp() {
-        mockMvc = MockMvcBuilders.standaloneSetup(
-                new ItemController(itemService)
-        ).addFilters(new CharacterEncodingFilter("UTF-8", true)).build();
-    }
+//    @BeforeEach
+//    void setUp() {
+//        mockMvc = MockMvcBuilders.standaloneSetup(
+//                new ItemController(itemService)
+//        ).addFilters(new CharacterEncodingFilter("UTF-8", true)).build();
+//    }
 
     @Test @DisplayName("Connect Test")
     void connect() throws Exception {
